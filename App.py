@@ -153,7 +153,7 @@ with st.sidebar:
 # ── Agent setup (cached so it only runs once) ──
 @st.cache_resource
 def load_agent(top_k: int):
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = st.secrets["OPENAI_API_KEY"]
     if not api_key:
         st.error("OPENAI_API_KEY not found. Add it to your .env file.")
         st.stop()
